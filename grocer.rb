@@ -1,10 +1,23 @@
+require "pry"
+
 def consolidate_cart(cart)
   new_hash = {}
-  cart.map {|food, price, clearance|
+  cart.map do |food|
+    item_name = food.keys[0]
+    new_hash[food.keys[0]] = {
+    price: food[item_name][:price],
+    clearance: food[item_name][:clearance],
+    count: cart.count(food)
+    }
+  end
+  return new_hash
 end
 
+
+
 def apply_coupons(cart, coupons)
-  # code here
+  new_hash = {}
+  cart.map 
 end
 
 def apply_clearance(cart)
